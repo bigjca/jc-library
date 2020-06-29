@@ -42,6 +42,123 @@
           }
         }
       }
+    },
+    "jc-library-demo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/jc-library-demo",
+      "sourceRoot": "projects/jc-library-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/jc-library-demo",
+            "index": "projects/jc-library-demo/src/index.html",
+            "main": "projects/jc-library-demo/src/main.ts",
+            "polyfills": "projects/jc-library-demo/src/polyfills.ts",
+            "tsConfig": "projects/jc-library-demo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/jc-library-demo/src/favicon.ico",
+              "projects/jc-library-demo/src/assets"
+            ],
+            "styles": [
+              "projects/jc-library-demo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/jc-library-demo/src/environments/environment.ts",
+                  "with": "projects/jc-library-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "jc-library-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "jc-library-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "jc-library-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/jc-library-demo/src/test.ts",
+            "polyfills": "projects/jc-library-demo/src/polyfills.ts",
+            "tsConfig": "projects/jc-library-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/jc-library-demo/karma.conf.js",
+            "assets": [
+              "projects/jc-library-demo/src/favicon.ico",
+              "projects/jc-library-demo/src/assets"
+            ],
+            "styles": [
+              "projects/jc-library-demo/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/jc-library-demo/tsconfig.app.json",
+              "projects/jc-library-demo/tsconfig.spec.json",
+              "projects/jc-library-demo/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/jc-library-demo/e2e/protractor.conf.js",
+            "devServerTarget": "jc-library-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jc-library-demo:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "jc-library"
 }
