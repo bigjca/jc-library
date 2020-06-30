@@ -1,3 +1,4 @@
+import { JcLabelModule } from 'jc-library/jc-label';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JcTextComponent } from './jc-text.component';
@@ -8,7 +9,8 @@ describe('JcTextComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JcTextComponent ]
+      declarations: [ JcTextComponent ],
+      imports: [JcLabelModule]
     })
     .compileComponents();
   }));
@@ -19,7 +21,7 @@ describe('JcTextComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create', () => {
     expect(component).toBeTruthy();
   });
 });

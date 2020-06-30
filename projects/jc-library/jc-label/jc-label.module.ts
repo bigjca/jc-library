@@ -8,6 +8,7 @@ import { JcLabelComponent } from './jc-label.component';
   declarations: [JcLabelComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [JcLabelComponent]
 })
 export class JcLabelModule { }

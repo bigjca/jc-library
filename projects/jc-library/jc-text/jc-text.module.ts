@@ -10,6 +10,7 @@ import { JcLabelModule} from 'jc-library/jc-label';
   imports: [
     CommonModule,
     JcLabelModule
-  ]
+  ],
+  exports: [JcTextComponent]
 })
 export class JcTextModule { }

@@ -17,8 +17,10 @@
     ],
     "paths": {
       "jc-library": [
-        "dist/jc-library/jc-library",
-        "dist/jc-library"
+        "projects/jc-library/public-api.ts"
+      ],
+      "jc-library/*": [
+        "projects/jc-library/*"
       ]
     }
   },
